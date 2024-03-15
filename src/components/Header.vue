@@ -1,8 +1,14 @@
 <script setup>
-import {reactive, ref} from "vue";
+import {onMounted, reactive, ref, watch} from "vue";
 import PrimaryBtn from "./PrimaryBtn.vue";
 const $reactiveStateObj = reactive({
     navBarState: false,
+});
+const $ArrayOflinks = ref(["about", "service", "Project"]);
+onMounted(() => {
+    window.addEventListener("click", (e) => {
+        $reactiveStateObj.navBarState = false;
+    });
 });
 </script>
 <template>
@@ -13,6 +19,7 @@ const $reactiveStateObj = reactive({
                 role="link"
                 aria-label="page link"
                 tabindex="-1"
+                ref="$el"
             >
                 <svg
                     width="161"
@@ -39,7 +46,7 @@ const $reactiveStateObj = reactive({
                     type="button"
                     role="button"
                     aria-label="navigation opener"
-                    @click="
+                    @click.stop="
                         $reactiveStateObj.navBarState =
                             !$reactiveStateObj.navBarState
                     "
@@ -76,24 +83,24 @@ const $reactiveStateObj = reactive({
                     role="navigation"
                     aria-label="mobile navigation"
                     v-if="$reactiveStateObj.navBarState"
+                    @click.stop
                 >
                     <ul role="list" aria-label="list of navigation links">
-                        <li role="listitem">
-                            <a href="#" role="link" aria-label="about link">
-                                about
-                            </a>
-                        </li>
-                        <li role="listitem">
-                            <a href="#" role="link" aria-label="service link">
-                                services
-                            </a>
-                        </li>
-                        <li role="listitem">
-                            <a href="#" role="link" aria-label="projects link">
-                                projects
+                        <li
+                            role="listitem"
+                            v-for="($link, $index) in $ArrayOflinks"
+                            :key="$index"
+                        >
+                            <a
+                                href="#"
+                                role="link"
+                                :aria-label="$link + 'link'"
+                            >
+                                {{ $link }}
                             </a>
                         </li>
                     </ul>
+
                     <PrimaryBtn
                         content="schedule a call"
                         bgcolor="#f94f4f"
@@ -141,8 +148,8 @@ const $reactiveStateObj = reactive({
 }
 header {
     padding: {
-        top: 8vw;
-        bottom: 8vw;
+        top: 7vw;
+        bottom: 7vw;
     }
 
     @media (min-width: 576px) {
@@ -191,16 +198,19 @@ header {
                 background-color: var(--clr-text-black);
                 padding: 20px;
                 z-index: 11111;
-                animation: fade 0.2s;
-                @keyframes fade {
+                animation: fade-in 0.2s;
+                @keyframes fade-in {
                     0% {
+                        transform: translateX(30px);
                         opacity: 0;
                     }
                     100% {
+                        transform: translateX(0);
                         opacity: 1;
                     }
                 }
                 ul {
+                    overflow: hidden;
                     li {
                         margin-bottom: 10px;
                         a {
@@ -208,6 +218,10 @@ header {
                             text-align: center;
                             padding: 10px 0px;
                             @extend%link-style;
+                            transition: var(--main-transition);
+                            &:hover {
+                                color: var(--clr-red);
+                            }
                         }
                     }
                 }
