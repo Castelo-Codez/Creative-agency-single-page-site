@@ -17,7 +17,7 @@ import PrimaryBtn from "./PrimaryBtn.vue";
             </picture>
         </div>
         <div aria-label="article wrapper" class="article-container">
-            <article >
+            <article>
                 <h1 aria-label="main heading">
                     Branding & website design agency
                 </h1>
@@ -58,7 +58,7 @@ section {
         }
     }
     .article-container {
-        padding: 20px;
+        padding: 7.5vw;
         position: relative;
 
         h1 {
@@ -67,6 +67,7 @@ section {
             font-weight: 800;
             @media (min-width: 768px) {
                 font-size: 5rem;
+             
             }
             & + p {
                 color: var(--clr-bg-black);
