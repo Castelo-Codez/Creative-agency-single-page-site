@@ -43,6 +43,7 @@ html {
 body {
     font-family: "commissioner";
     font-size: 0.955rem;
+    overflow-x: hidden;
 }
 
 /**
@@ -373,8 +374,4 @@ template {
 
 ul {
     list-style: none;
-}
-
-#app {
-    overflow-x: hidden;
 }
