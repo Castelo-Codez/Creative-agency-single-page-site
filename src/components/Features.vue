@@ -50,7 +50,7 @@ section {
         grid-template-areas: ". . . cont cont cont cont";
     }
     .content-wrapper {
-        padding: 8vw 7.5vw;
+        padding: 8vw var(--pad-space);
         position: relative;
         @media (min-width: 768px) {
             padding: {

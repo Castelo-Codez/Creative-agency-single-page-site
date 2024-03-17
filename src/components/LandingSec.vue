@@ -58,7 +58,7 @@ section {
         }
     }
     .article-container {
-        padding: 7.5vw;
+        padding: var(--pad-space);
         position: relative;
 
         h1 {
@@ -67,7 +67,6 @@ section {
             font-weight: 800;
             @media (min-width: 768px) {
                 font-size: 5rem;
-             
             }
             & + p {
                 color: var(--clr-bg-black);
