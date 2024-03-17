@@ -232,9 +232,9 @@ section {
     .controllers {
         padding: var(--pad-space);
         @media (min-width: 768px) {
-            padding: 8vw 10vw;
+            padding: 8vw 10vw 8vw 15vw;
         }
-        background-color: var(--clr-bg-black);
+        background-color: black;
         h3 {
             color: var(--clr-white);
             font-size: 2rem;
@@ -272,13 +272,13 @@ section {
         }
         @media (min-width: 768px) {
             position: absolute;
-            width: 50%;
+            width: 53%;
             min-height: 30%;
         }
     }
     .pattern {
         position: absolute;
-        left: 50%;
+        left: 55%;
         transform: translateX(-80%);
         top: 20%;
         display: none;
