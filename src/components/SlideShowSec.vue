@@ -232,7 +232,7 @@ section {
     .controllers {
         padding: var(--pad-space);
         @media (min-width: 768px) {
-            padding: 8vw 10vw 8vw 15vw;
+            padding: 8vw 10vw 8vw 10vw;
         }
         background-color: black;
         h3 {
